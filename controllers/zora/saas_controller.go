@@ -89,7 +89,7 @@ func (r *SaasReconciler) reconcile(ctx context.Context, clist *v1alpha1.ClusterL
 	}
 
 	// The failed scans parameter is no longer used.
-	issues := payloads.NewIssues(cilist.Items, map[string]struct{}{})
+	issues := payloads.NewIssues(cilist.Items)
 	log.Info(fmt.Sprintf("Sending %d issues", len(issues)))
 	for _, bod := range issues {
 		sendf(bod)
